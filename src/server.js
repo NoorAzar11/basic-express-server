@@ -7,7 +7,7 @@ const logger = require('./middleware/logger');
 const validator = require('./middleware/validator');
 
 const app = express();
-
+app.use(express.json());
 app.use(logger);
 
 function start(port){
@@ -23,7 +23,7 @@ app.get('/',(req,res)=>{
 app.get('/person',validator,(req,res)=>{
     res.json({
         name:req.name
-    })
+    });
 });
 
 app.use('*',notFoundHandler);

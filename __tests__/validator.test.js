@@ -8,14 +8,15 @@ const req=supertest(server.app);
 
 describe('validator test' ,()=>{
 
-    it('Checks the query string for a name ', async()=>{
-        const res=await req.get('/person?name=noor');
-        expect(res.status).toEqual(200);
+    it('Error 500 found ', async()=>{
+        const res=await req.get('/person');
+        expect(res.status).toEqual(500);
     });
 
     it('get name',async()=>{
         const res=await req.get('/person?name=noor');
-   expect(res.body).toEqual({name: 'noor'});
+        expect(res.status).toEqual(200);
+   expect(typeof res.body).toEqual('object');
     });
 
 })
