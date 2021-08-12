@@ -1,10 +1,12 @@
 'use strict'
 
 module.exports =(req,res,next)=>{
-    if(req.query.name){
-        next();
-    }
-    if(req.query.name==''){
-        next('invalid name');
-    }
+  const name=req.query.name;
+  if(typeof name=='string' && name.length!==0){
+      req.name=name;
+      next();
+
+  }else{
+      next('Error Has Been Found');
+  }
 };
