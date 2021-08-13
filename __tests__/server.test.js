@@ -20,7 +20,7 @@ describe('will serve as your server ',()=>{
 
 it('handles not found requset try again 2',async()=>{
     const response=await request.post('/person');
-    expect(response.status).toEqual(404);
+    expect(response.status).toEqual(500);
 });
 
 

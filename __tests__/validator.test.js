@@ -9,12 +9,12 @@ const req=supertest(server.app);
 describe('validator test' ,()=>{
 
     it('Error 500 found ', async()=>{
-        const res=await req.get('/person');
+        const res=await req.post('/person');
         expect(res.status).toEqual(500);
     });
 
     it('get name',async()=>{
-        const res=await req.get('/person?name=noor');
+        const res=await req.post('/person?name=noor');
         expect(res.status).toEqual(200);
    expect(typeof res.body).toEqual('object');
     });
