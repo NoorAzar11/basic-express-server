@@ -15,7 +15,6 @@ function start(port){
         console.log(`Hello from the Other side : ${port}`));
     
 }
-
 app.get('/',(req,res)=>{
     res.send('Welcome To Home Page')
 });
