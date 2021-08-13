@@ -20,7 +20,7 @@ app.get('/',(req,res)=>{
     res.send('Welcome To Home Page')
 });
 
-app.get('/person',validator,(req,res)=>{
+app.post('/person',validator,(req,res)=>{
     res.json({
         name:req.name
     });
@@ -31,5 +31,7 @@ app.use(errorHandler);
 
 module.exports={
     app:app,
-    start,
+    start:start,
 };
+
+//http://localhost:3000/person?name=gggg
